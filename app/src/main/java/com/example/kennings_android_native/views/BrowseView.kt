@@ -11,14 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
-import com.amplifyframework.api.ApiException
-import com.amplifyframework.api.graphql.model.ModelQuery
-import com.amplifyframework.core.Amplify
-import com.amplifyframework.core.category.Category
-import com.amplifyframework.core.category.CategoryType
-import com.amplifyframework.core.category.CategoryTypeable
-import com.amplifyframework.core.model.Model
-import com.amplifyframework.datastore.generated.model.AmplifyModelProvider
+
 
 @Composable
 fun BrowseView() {
@@ -36,20 +29,6 @@ fun BrowseView() {
         )
     }
 }
-
-/*fun getData() {
-
-    try {
-        Amplify.API.query()
-        {
-            response ->
-                response.data.forEach { category ->
-                    println(category.name)
-                }
-        }
-    } catch (error: ApiException) {
-    }
-}*/
 
 @Composable
 @Preview

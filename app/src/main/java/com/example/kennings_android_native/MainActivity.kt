@@ -1,28 +1,33 @@
 package com.example.kennings_android_native
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import com.amplifyframework.AmplifyException
 import com.amplifyframework.api.aws.AWSApiPlugin
+import com.amplifyframework.api.graphql.model.ModelQuery
 import com.amplifyframework.core.Amplify
+import com.amplifyframework.datastore.generated.model.Category
 import com.example.kennings_android_native.ui.theme.Kennings_Android_NativeTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        try {
-            // Add these lines to add the AWSApiPlugin plugins
-            Amplify.addPlugin(AWSApiPlugin())
-            Amplify.configure(applicationContext)
-            println("init")
-        } catch (error: AmplifyException) {}
-
         setContent {
             Kennings_Android_NativeTheme {
                 MainView()
             }
         }
+        Amplify.API.query(
+            ModelQuery.list(Category::class.java),
+            { response ->
+                response.data.forEach { item ->
+                    Log.i("Category",item.name)
+                }
+            },
+            {println(it)}
+        )
     }
 }
