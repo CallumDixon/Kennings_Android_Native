@@ -16,8 +16,8 @@ sealed class BottomBarScreen(
         icon = Icons.Default.Home
     )
 
-    object Browse : BottomBarScreen(
-        route = "browse",
+    object BrowseNavigator : BottomBarScreen(
+        route = "browseNavigator",
         title = "Browse",
         icon = Icons.Default.Info
     )

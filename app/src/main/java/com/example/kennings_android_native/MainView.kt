@@ -10,6 +10,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
+import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
@@ -31,7 +32,7 @@ fun BottomBar(navController: NavHostController) {
     
     val screens = listOf(
         BottomBarScreen.Home,
-        BottomBarScreen.Browse
+        BottomBarScreen.BrowseNavigator
     )
 
     val navBackStackEntry by navController.currentBackStackEntryAsState()
@@ -62,7 +63,12 @@ fun RowScope.AddItem(
             it.route == screen.route
         },
         onClick = {
-            navController.navigate(screen.route)
+            navController.navigate(screen.route){
+                popUpTo(navController.graph.findStartDestination().id) {
+                    saveState = true
+                }
+                restoreState = true
+            }
         },
         selectedContentColor = KenningsGreen,
         unselectedContentColor = Color.LightGray

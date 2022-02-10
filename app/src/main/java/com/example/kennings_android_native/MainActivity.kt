@@ -20,14 +20,5 @@ class MainActivity : ComponentActivity() {
                 MainView()
             }
         }
-        Amplify.API.query(
-            ModelQuery.list(Category::class.java),
-            { response ->
-                response.data.forEach { item ->
-                    Log.i("Category",item.name)
-                }
-            },
-            {println(it)}
-        )
     }
 }

@@ -65,6 +65,8 @@ dependencies {
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
     implementation 'com.amplifyframework:core:1.31.1'
     implementation 'com.amplifyframework:aws-api:1.31.1'
+    implementation 'com.amplifyframework:core-kotlin:0.15.3'
+
 }
 
 android {
