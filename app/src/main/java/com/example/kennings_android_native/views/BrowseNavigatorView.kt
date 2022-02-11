@@ -15,8 +15,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.navigation.NavController
 import com.example.kennings_android_native.ViewModels.BrowseViewModel
 
+val bvm = BrowseViewModel()
+
 @Composable
 fun BrowseNavigatorView(navController: NavController) {
 
-    BrowseView(navController = navController, Title = "Categories", browseViewModel = BrowseViewModel())
+
+    BrowseView(navController = navController, Title = "Categories", browseViewModel = bvm)
 }

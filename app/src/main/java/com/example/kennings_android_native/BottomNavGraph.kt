@@ -23,9 +23,10 @@ fun BottomNavGraph(navController: NavHostController) {
             BrowseNavigatorView(navController = navController)
         }
 
+        val bm = BrowseViewModel()
         composable("Categories/{title}"){ backStackEntry ->
             backStackEntry.arguments?.getString("title")
-                ?.let { BrowseView(navController = navController,it, BrowseViewModel()) }
+                ?.let { BrowseView(navController = navController,it, browseViewModel = bm) }
         }
     }
 }

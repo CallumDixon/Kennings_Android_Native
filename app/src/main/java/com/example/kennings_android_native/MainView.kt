@@ -21,7 +21,7 @@ fun MainView() {
 
     val navController = rememberNavController()
     Scaffold(
-        bottomBar = { BottomBar(navController = navController) }
+        bottomBar = { BottomBar(navController = navController) } ,topBar = { TopAppBar{ Text("tITLE") } }
     ) {
         BottomNavGraph(navController = navController)
     }
