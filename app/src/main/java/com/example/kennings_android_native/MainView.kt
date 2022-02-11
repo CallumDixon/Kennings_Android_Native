@@ -1,7 +1,9 @@
 package com.example.kennings_android_native
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.RowScope
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -21,9 +23,12 @@ fun MainView() {
 
     val navController = rememberNavController()
     Scaffold(
-        bottomBar = { BottomBar(navController = navController) } ,topBar = { TopAppBar{ Text("tITLE") } }
-    ) {
-        BottomNavGraph(navController = navController)
+        bottomBar = { BottomBar(navController = navController) }
+    ) { innerPadding ->
+
+        Box(modifier = Modifier.padding(innerPadding)){
+            BottomNavGraph(navController = navController)
+        }
     }
 }
 

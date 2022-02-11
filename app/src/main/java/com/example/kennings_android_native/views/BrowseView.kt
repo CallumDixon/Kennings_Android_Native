@@ -26,13 +26,12 @@ fun BrowseView(navController: NavController,Title: String, browseViewModel: Brow
         browseViewModel.getCategories(Title)
     })
 
+    Scaffold( topBar = { TopAppBar{ Text(Title) } },) {
         Box(
             modifier = Modifier
                 .fillMaxSize()
                 .background(Color.LightGray),
-            contentAlignment = Alignment.Center
         ) {
-
             if(browseViewModel.Loading.value){
                 CircularProgressIndicator()
             }
@@ -40,12 +39,13 @@ fun BrowseView(navController: NavController,Title: String, browseViewModel: Brow
                 CategoryList(categories = browseViewModel.CategoryList, navController = navController)
             }
         }
-
+    }
 }
 
 @Composable
 fun CategoryList(categories: List<String>, navController: NavController?) {
-    LazyColumn(modifier = Modifier.padding(10.dp).height(500.dp).border(width = 1.dp, Color.Red, shape = RoundedCornerShape(10.dp)), verticalArrangement = Arrangement.spacedBy(10.dp)){
+    LazyColumn(modifier = Modifier.padding(20.dp),
+        verticalArrangement = Arrangement.spacedBy(20.dp)){
         items(categories) { category ->
 
             Card(modifier = Modifier

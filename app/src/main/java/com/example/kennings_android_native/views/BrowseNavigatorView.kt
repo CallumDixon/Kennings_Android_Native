@@ -20,6 +20,5 @@ val bvm = BrowseViewModel()
 @Composable
 fun BrowseNavigatorView(navController: NavController) {
 
-
     BrowseView(navController = navController, Title = "Categories", browseViewModel = bvm)
 }
