@@ -6,9 +6,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.kennings_android_native.ViewModels.BrowseViewModel
-import com.example.kennings_android_native.views.BrowseNavigatorView
-import com.example.kennings_android_native.views.BrowseView
-import com.example.kennings_android_native.views.HomeView
+import com.example.kennings_android_native.views.*
 
 @Composable
 fun BottomNavGraph(navController: NavHostController) {
@@ -21,6 +19,14 @@ fun BottomNavGraph(navController: NavHostController) {
 
         composable(route = BottomBarScreen.BrowseNavigator.route){
             BrowseNavigatorView(navController = navController)
+        }
+
+        composable(route = BottomBarScreen.AccountNavigator.route){
+            AccountView(navController = navController)
+        }
+
+        composable(route = BottomBarScreen.BasketNavigator.route){
+            BasketView(navController = navController)
         }
 
         val bm = BrowseViewModel()

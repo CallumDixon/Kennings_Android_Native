@@ -1,8 +1,7 @@
 package com.example.kennings_android_native
 
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.*
 import androidx.compose.ui.graphics.vector.ImageVector
 
 sealed class BottomBarScreen(
@@ -19,6 +18,18 @@ sealed class BottomBarScreen(
     object BrowseNavigator : BottomBarScreen(
         route = "browseNavigator",
         title = "Browse",
-        icon = Icons.Default.Info
+        icon = Icons.Default.List
+    )
+
+    object AccountNavigator : BottomBarScreen(
+        route = "account",
+        title = "Account",
+        icon = Icons.Default.Person
+    )
+
+    object BasketNavigator : BottomBarScreen(
+        route = "basket",
+        title = "Basket",
+        icon = Icons.Default.ShoppingCart
     )
 }
