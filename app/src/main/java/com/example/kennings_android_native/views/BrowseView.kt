@@ -44,15 +44,15 @@ fun BrowseView(navController: NavController,Title: String, browseViewModel: Brow
 
 @Composable
 fun CategoryList(categories: List<String>, navController: NavController?) {
-    LazyColumn(modifier = Modifier.padding(20.dp),
-        verticalArrangement = Arrangement.spacedBy(20.dp)){
+    LazyColumn(modifier = Modifier.padding(15.dp),
+        verticalArrangement = Arrangement.spacedBy(12.dp)){
         items(categories) { category ->
 
             Card(modifier = Modifier
                 .border(width = 1.dp, Color.Black, shape = RoundedCornerShape(10.dp))
                 .padding(all = 1.dp)
                 .fillMaxSize()
-                .size(height = 50.dp, width = 100.dp)
+                .size(height = 60.dp, width = 100.dp)
                 .clickable { navController?.navigate("Categories/$category") }
                 ,backgroundColor = Color.LightGray
             )
